@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Loved+by+the+King&family=Red+Hat+Display:wght@300&display=swap");
+
+.img {
+  width: 37px;
+  height: 37px;
+  margin: 10px;
+  display: inline-block;
+}
+.p {
+  color: #fb6f92;
+  font-family: "Loved by the King", cursive;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: -20px;
+}
