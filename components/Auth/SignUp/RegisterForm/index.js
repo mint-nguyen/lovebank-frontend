@@ -11,6 +11,34 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { StyledForm } from "../../../../styles/styledForm";
+import { gql, useMutation } from "@apollo/client";
+
+const CREATE_USER_MUTATION = gql`
+  mutation createUser(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    createOneCreateUser(
+      input: {
+        createUser: {
+          firstName: $firstName
+          lastName: $lastName
+          password: $password
+          email: $email
+        }
+      }
+    ) {
+      lastName
+      password
+      firstName
+      email
+    }
+  }
+`;
+
+const [createUser] = useMutation(CREATE_USER_MUTATION);
 
 export default function RegisterForm() {
   const styles = StyledForm();
@@ -50,6 +78,14 @@ export default function RegisterForm() {
         // if (isMountedRef.current) {
         //   setSubmitting(false);
         // }
+        createUser({
+          variables: {
+            firstName: values.firstName,
+            lastName: values.lastName,
+            email: values.email,
+            password: values.password,
+          },
+        });
       } catch (error) {
         console.error(error);
         setErrors({ afterSubmit: "Can't submit for some reasons!" });
