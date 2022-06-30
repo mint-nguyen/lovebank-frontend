@@ -13,7 +13,8 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { StyledForm } from "../../../../styles/styledForm";
 import { gql, useMutation } from "@apollo/client";
 
-const CREATE_USER_MUTATION = gql`
+export default function RegisterForm() {
+  const CREATE_USER_MUTATION = gql`
   mutation createUser(
     $firstName: String!
     $lastName: String!
@@ -38,9 +39,8 @@ const CREATE_USER_MUTATION = gql`
   }
 `;
 
-const [createUser] = useMutation(CREATE_USER_MUTATION);
+  const [createUser] = useMutation(CREATE_USER_MUTATION);
 
-export default function RegisterForm() {
   const styles = StyledForm();
 
   const [showPassword, setShowPassword] = useState(false);

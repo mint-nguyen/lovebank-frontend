@@ -62,7 +62,6 @@ export default function SignInTab() {
         <Tabs
           value={value}
           onChange={handleChange}
-          variant="fullWidth"
           TabIndicatorProps={{ style: { background: "#fb6f92" } }}
           textColor="inherit"
         >
