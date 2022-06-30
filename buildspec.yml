@@ -1,0 +1,26 @@
+version: 0.4
+
+phases:
+  install:
+    commands:
+      - echo Install nodejs...
+      - sudo apt-get install curl
+      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - sudo apt-get install nodejs
+      - echo Install yarn...
+      - npm install --global yarn
+  pre_build:
+    commands:
+      - echo Install dep...
+      - npm install
+  build:
+    commands:
+      - echo testing...
+      - npm run test
+      - echo building...
+      - npm run build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: out
