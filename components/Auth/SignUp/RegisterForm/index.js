@@ -11,36 +11,8 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { StyledForm } from "../../../../styles/styledForm";
-import { gql, useMutation } from "@apollo/client";
 
 export default function RegisterForm() {
-  const CREATE_USER_MUTATION = gql`
-  mutation createUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    createOneCreateUser(
-      input: {
-        createUser: {
-          firstName: $firstName
-          lastName: $lastName
-          password: $password
-          email: $email
-        }
-      }
-    ) {
-      lastName
-      password
-      firstName
-      email
-    }
-  }
-`;
-
-  const [createUser] = useMutation(CREATE_USER_MUTATION);
-
   const styles = StyledForm();
 
   const [showPassword, setShowPassword] = useState(false);
